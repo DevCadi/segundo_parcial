@@ -1,5 +1,5 @@
-{% extends "base.html" %} 
-{% block title %}Inicio{% endblock %} 
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
 {% block content %}
 
 <!-- Fondo con imagen suave -->
@@ -10,6 +10,7 @@
         background-position: center;
         background-attachment: fixed;
     }
+
     .welcome-card {
         background-color: rgba(255, 255, 255, 0.9);
         border-radius: 20px;
@@ -18,17 +19,26 @@
         backdrop-filter: blur(10px);
         animation: fadeIn 1s ease-in-out;
     }
+
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    .post-card {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
 </style>
 
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container my-5">
     <div class="welcome-card text-center">
         <h1 class="mb-4 text-primary fw-bold">¡Bienvenido a tu Blog Preferido!</h1>
         <p class="lead text-secondary">Publica tus ideas, explora lo que otros escriben y forma parte de nuestra comunidad.</p>
-        
+
         <div class="d-grid gap-3 mt-4">
             <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg">Registrarse</a>
             <a href="{{ url_for('login') }}" class="btn btn-outline-success btn-lg">Iniciar Sesión</a>
@@ -38,7 +48,23 @@
             <small class="text-muted">Desarrollado por Benjamin Cadillo 😉</small>
         </div>
     </div>
+
+    <!-- Sección de posts públicos -->
+    <div class="mt-5">
+        <h3 class="text-white text-center mb-4">Últimas Publicaciones</h3>
+
+        {% for post in posts %}
+        <div class="post-card">
+            <h4 class="text-primary">{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
+            <p class="text-muted mb-0">
+                <small>Publicado por <strong>{{ post.author }}</strong> el {{ post.created_at }}</small>
+            </p>
+        </div>
+        {% else %}
+        <p class="text-white text-center">No hay publicaciones aún.</p>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
-

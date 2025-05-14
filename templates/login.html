@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Iniciar Sesión{% endblock %}
+{% block content %}
+
+<style>
+    body {
+        background-color: #eef2f7;
+    }
+
+    .login-container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #28a745;
+        text-align: center;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .login-footer {
+        text-align: center;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-title">Iniciar Sesión en CADI BLOG</div>
+
+    <form method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nombre de Usuario</label>
+            <input type="text" id="username" name="username" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password_hash" class="form-label">Contraseña</label>
+            <input type="password" id="password_hash" name="password_hash" class="form-control" required>
+        </div>
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-login">Ingresar</button>
+        </div>
+    </form>
+
+    <div class="login-footer">
+        <small class="text-muted">¿No tienes cuenta? <a href="{{ url_for('register') }}">Regístrate aquí</a></small>
+    </div>
+</div>
+
+{% endblock %}

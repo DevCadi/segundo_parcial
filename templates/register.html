@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+
+<style>
+    body {
+        background: #eef2f7;
+    }
+
+    .register-container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-title {
+        font-size: 2.2rem;
+        font-weight: bold;
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+</style>
+
+<div class="register-container">
+    <div class="register-title">Registro en CADI BLOG</div>
+
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">Nombre de Usuario</label>
+            <input type="text" name="username" class="form-control" placeholder="Ej: juanito123" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" name="password" class="form-control" placeholder="Tu contraseña segura" required>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-register">Registrar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %} 
+{% block title %}Inicio{% endblock %} 
+{% block content %}
+
+<!-- Fondo con imagen suave -->
+<style>
+    body {
+        background-image: url("https://static.vecteezy.com/system/resources/thumbnails/056/298/419/small/vibrant-neon-landscape-featuring-glowing-mountains-and-ocean-waves-under-a-starry-night-sky-photo.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    .welcome-card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="welcome-card text-center">
+        <h1 class="mb-4 text-primary fw-bold">¡Bienvenido a tu Blog Preferido!</h1>
+        <p class="lead text-secondary">Publica tus ideas, explora lo que otros escriben y forma parte de nuestra comunidad.</p>
+        
+        <div class="d-grid gap-3 mt-4">
+            <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg">Registrarse</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-success btn-lg">Iniciar Sesión</a>
+        </div>
+
+        <div class="mt-4">
+            <small class="text-muted">Desarrollado por Benjamin Cadillo 😉</small>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

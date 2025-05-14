@@ -74,7 +74,7 @@ def load_user(user_id):
 def index():
     conn = get_db_connection()
     posts = conn.execute("""
-        SELECT posts.id, posts.title, posts.content, posts.created_at, users.username
+        SELECT posts.id, posts.title, posts.content, posts.created_at, users.username AS author
         FROM posts
         JOIN users ON posts.user_id = users.id
         ORDER BY posts.created_at DESC

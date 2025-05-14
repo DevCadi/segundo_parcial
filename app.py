@@ -208,6 +208,7 @@ def delete(post_id):
     flash("Post eliminado exitosamente", "info")
     return redirect(url_for("dashboard"))
 
+
 if __name__ == "__main__":
     init_db()
     app.run(debug=True)
